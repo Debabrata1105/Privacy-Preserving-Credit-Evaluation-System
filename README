@@ -1,0 +1,77 @@
+Privacy-Preserving Credit Evaluation System
+This project implements a privacy-preserving credit evaluation system that enables financial institutions to assess credit eligibility while preserving user privacy through advanced cryptographic techniques.
+Overview
+The system allows for secure credit evaluation where:
+
+Users can prove their salary qualification without revealing the exact amount (using Zero-Knowledge Proofs)
+Credit history is evaluated on encrypted data (using Fully Homomorphic Encryption)
+Communication between services occurs via secure gRPC channels
+
+Architecture
+The system consists of the following components:
+
+Bank Service: Verifies user salary claims using zero-knowledge proofs
+NBFC Service: Evaluates credit history on encrypted data using FHE
+ZK Salary Circuit: Implements zero-knowledge proofs for salary verification
+FHE Utils: Provides utilities for fully homomorphic encryption operations
+
+Project Structure
+privacy-preserving-credit/
+├── Cargo.toml         # Project dependencies
+├── build.rs           # Build script for Protocol Buffers
+├── proto/
+│   └── credit_evaluation.proto  # Protocol Buffers definitions
+└── src/
+    ├── main.rs           # Application entry point
+    ├── zk_salary_circuit.rs  # Zero-knowledge proof implementation
+    ├── fhe_utils.rs      # Fully Homomorphic Encryption utilities
+    ├── nbfc_service.rs   # NBFC service implementation 
+    └── bank_service.rs   # Bank service implementation
+Technologies Used
+
+Rust: Primary programming language
+gRPC: For service communication
+Plonky2: For zero-knowledge proof generation and verification
+TFHE (Concrete): For fully homomorphic encryption operations
+Tonic: Rust implementation of gRPC
+
+Prerequisites
+
+Rust toolchain (1.73.0 or newer)
+Protobuf compiler (protoc)
+Cargo and related build tools
+
+Installation
+
+Clone the repository:
+bashgit clone <repository-url>
+cd privacy-preserving-credit
+
+Install Rust (if not already installed):
+bashcurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+
+Install Protocol Buffers compiler:
+
+For Ubuntu/Debian:
+bashsudo apt install -y protobuf-compiler
+
+For macOS:
+bashbrew install protobuf
+
+For Windows: Download from protobuf releases
+
+
+Build the project:
+bashcargo build
+
+
+Running the Project
+bashcargo run
+This will:
+
+Start the Bank and NBFC services
+Generate a sample zero-knowledge proof for salary verification
+Create encrypted credit history data
+Perform FHE operations for credit score calculation
+Output the evaluation results
