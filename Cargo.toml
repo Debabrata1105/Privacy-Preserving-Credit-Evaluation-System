@@ -1,0 +1,21 @@
+[package]
+name = "privacy-preserving-credit"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "privacy-preserving-credit"
+path = "src/main.rs"
+
+[dependencies]
+plonky2 = { git = "https://github.com/mir-protocol/plonky2", branch = "main" }
+tfhe = { git = "https://github.com/zama-ai/tfhe-rs", branch = "main", features = ["shortint"] }
+tonic = "0.8.3"
+prost = "0.11.8"
+tokio = { version = "1.28.0", features = ["full"] }
+rand = "0.8.5"
+bincode = "1.3.3"
+anyhow = "1.0.71"
+
+[build-dependencies]
+tonic-build = "0.8.3"
