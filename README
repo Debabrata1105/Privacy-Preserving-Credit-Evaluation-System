@@ -43,31 +43,21 @@ Cargo and related build tools
 
 Installation
 
-Clone the repository:
-bashgit clone <repository-url>
+Clone the repository
 cd privacy-preserving-credit
 
 Install Rust (if not already installed):
-bashcurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 
 Install Protocol Buffers compiler:
-
-For Ubuntu/Debian:
 bashsudo apt install -y protobuf-compiler
 
-For macOS:
-bashbrew install protobuf
-
-For Windows: Download from protobuf releases
-
-
 Build the project:
-bashcargo build
+cargo build
 
 
 Running the Project
-bashcargo run
+cargo run
 This will:
 
 Start the Bank and NBFC services
